@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorateur de Fichiers - Portfolio">
+    <title>Explorateur de Fichiers</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #005f73;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        .folder {
+            margin: 10px 0;
+            cursor: pointer;
+            font-weight: bold;
+            color: #005f73;
+        }
+        .file {
+            margin-left: 20px;
+            font-style: italic;
+            color: #333;
+        }
+        .file img {
+            max-width: 200px;
+            margin: 10px 0;
+        }
+        .file a {
+            color: #0077b6;
+            text-decoration: none;
+        }
+        .file a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            background-color: #005f73;
+            color: #fff;
+            padding: 10px 0;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explorateur de Fichiers</h1>
+        <p>Explorez les dossiers et fichiers (images, vidéos, PDF, etc.)</p>
+    </header>
+    <div class="container" id="file-explorer">
+        <!-- Dynamically generated content will appear here -->
+    </div>
+    <footer>
+        <p>&copy; 2025 Explorateur de Fichiers. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Example file structure
+        const fileStructure = {
+            "Dossier 1": {
+                "Sous-dossier A": {
+                    "Fichier 1.pdf": "files/Dossier1/Sous-dossierA/Fichier1.pdf",
+                    "Fichier 2.jpg": "files/Dossier1/Sous-dossierA/Fichier2.jpg"
+                },
+                "Sous-dossier B": {
+                    "Vidéo.mp4": "files/Dossier1/Sous-dossierB/Video.mp4"
+                },
+                "Document.txt": "files/Dossier1/Document.txt"
+            },
+            "Dossier 2": {
+                "Image.png": "files/Dossier2/Image.png",
+                "Rapport.pdf": "files/Dossier2/Rapport.pdf"
+            }
+        };
+
+        // Function to generate file explorer HTML
+        function createFileExplorer(container, structure) {
+            for (const [name, content] of Object.entries(structure)) {
+                if (typeof content === "object") {
+                    // Create a folder
+                    const folder = document.createElement("div");
+                    folder.className = "folder";
+                    folder.textContent = `📁 ${name}`;
+                    folder.addEventListener("click", () => {
+                        const isOpen = folder.nextSibling.style.display === "block";
+                        folder.nextSibling.style.display = isOpen ? "none" : "block";
+                    });
+
+                    // Create sub-container for folder contents
+                    const folderContent = document.createElement("div");
+                    folderContent.style.display = "none";
+
+                    // Recursively build contents
+                    createFileExplorer(folderContent, content);
+
+                    // Append folder and its content
+                    container.appendChild(folder);
+                    container.appendChild(folderContent);
+                } else {
+                    // Create a file
+                    const file = document.createElement("div");
+                    file.className = "file";
+
+                    if (content.endsWith(".jpg") || content.endsWith(".png")) {
+                        file.innerHTML = `<img src="${content}" alt="${name}"><p>${name}</p>`;
+                    } else if (content.endsWith(".pdf")) {
+                        file.innerHTML = `<a href="${content}" target="_blank">${name}</a>`;
+                    } else if (content.endsWith(".mp4")) {
+                        file.innerHTML = `<video controls width="300"><source src="${content}" type="video/mp4">Votre navigateur ne supporte pas la lecture vidéo.</video><p>${name}</p>`;
+                    } else {
+                        file.innerHTML = `<a href="${content}" download>${name}</a>`;
+                    }
+
+                    container.appendChild(file);
+                }
+            }
+        }
+
+        // Initialize file explorer
+        const explorerContainer = document.getElementById("file-explorer");
+        createFileExplorer(explorerContainer, fileStructure);
+    </script>
+</body>
+</html>
