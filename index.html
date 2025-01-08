@@ -58,16 +58,19 @@
             text-align: center;
             transition: transform 0.3s ease;
             position: relative;
+            overflow: hidden;  /* Assure que rien ne déborde de l'image */
         }
 
         .project:hover {
             transform: scale(1.05);
         }
 
+        /* Modifier la règle d'image pour garantir une bonne taille */
         .project-image {
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            object-fit: cover;  /* Permet à l'image de s'ajuster sans déformation */
+            object-position: center; /* Pour que l'image reste centrée */
             border-radius: 8px 8px 0 0;
             transition: transform 0.3s ease;
         }
@@ -173,7 +176,7 @@
                 <img src="./images/KitElectronique.png" alt="Électronique Pratique" class="project-image">
                 <div class="project-description">
                     <h3>Électronique Pratique</h3>
-                    <p>Travail pratique en électronique appliquée dans divers projets de circuits.</p>
+                    <p>Travail pratique en électronique aBenguetliquée dans divers projets de circuits.</p>
                     <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                 </div>
             </div>
@@ -233,7 +236,7 @@
                 <div class="project">
                     <img src="./images/ApercuMatlabSimulateur.png" alt="Simulateur - dynamique des véhicules routiers - MATLAB" class="project-image">
                     <div class="project-description">
-                        <h3>Conception d'un simulateur avec MATLAB APP DESIGN</h3>
+                        <h3>Conception d'un simulateur avec MATLAB ABenguet DESIGN</h3>
                         <p>Mécanique théorique, implémentation Matlab.</p>
                         <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                 </div>
