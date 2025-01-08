@@ -50,49 +50,48 @@
 
         .project {
             background-color: #fff;
+            background-size: cover;
+            background-position: center;
             padding: 1.2rem;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 300px;
+            height: 200px; /* Ajuste la hauteur pour les arrière-plans */
             text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             transition: transform 0.3s ease;
+        }
+
+        .project h3 {
+            font-size: 1.6rem;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .project p {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .project:hover {
             transform: scale(1.05);
         }
 
-        .project img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #333;
+            color: #fff;
         }
 
-        .project h3 {
-            font-size: 1.6rem;
-            color: #333;
-            margin-top: 1rem;
-        }
-
-        .project p {
-            font-size: 1rem;
-            color: #555;
-        }
-
-        .project a {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: #4CAF50;
+        footer a {
             color: #fff;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .project a:hover {
-            background-color: #45a049;
         }
     </style>
 </head>
@@ -107,17 +106,43 @@
     <section id="projets-faits-maison">
         <h2>1. Projets Faits Maison</h2>
         <div class="section">
-            <div class="project">
-                <!-- Chemin absolu pour les images -->
-                <img src="https://github.com/BenguetAime/Shared_StudentPortfolio.github.io/blob/main/Images/_Apercu_BaseMobile_Bras.png" alt="Robot Mobile - Bras Robotique">
+            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/_Apercu_BaseMobile_Bras.png');" onclick="openModal('FaitMaison_RobotMobile_BrasRobotique')">
                 <h3>Robot Mobile - Bras Robotique</h3>
-                <p>Ce projet est un robot mobile avec bras robotique, une combinaison de mécatronique, d'électronique et de programmation.</p>
+                <p>Mécatronique, électronique et programmation.</p>
             </div>
+            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/_Aperçu_Intercom.png');" onclick="openModal('FaitMaison_2023_Communication_IOT')">
+                <h3>Communication IoT</h3>
+                <p>Raspberry Pi et Arduino pour la domotique.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="project">
-                <img src="https://github.com/BenguetAime/Shared_StudentPortfolio.github.io/blob/main/Images/_Aperçu_Intercom.png" alt="Communication IoT RaspberryPi et Arduino">
-                <h3>Communication IoT avec Raspberry Pi et Arduino</h3>
-                <p>Projet combinant IoT et communication sans fil avec Raspberry Pi et Arduino pour des applications domotiques.</p>
+    <!-- Section Projets Académiques -->
+    <section id="projets-academiques">
+        <h2>2. Projets Académiques</h2>
+        <div class="section">
+            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/projet3.jpg');" onclick="openModal('Projet_Academique_2022_RobotMobile_MicroncontrolleurPIC16F')">
+                <h3>Robot Mobile avec PIC16F</h3>
+                <p>Contrôle des moteurs et capteurs.</p>
+            </div>
+            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/projet4.jpg');" onclick="openModal('Projet_Academique_2022_RobotTurtleBot2_ROS_LIDAR')">
+                <h3>Rail Linéaire Motorisé</h3>
+                <p>Applications industrielles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Stages -->
+    <section id="stages">
+        <h2>3. Stages</h2>
+        <div class="section">
+            <div class="project" style="background-image: url('./Images/_Apercu_BaseMobile_Bras.png');" onclick="openModal('Stage_1A_2022_Photogrammetrie')">
+                <h3>Photogrammétrie</h3>
+                <p>Vision 3D et modélisation industrielle.</p>
+            </div>
+            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/stage2.jpg');" onclick="openModal('Stage_2A_2023_Development_Embarque')">
+                <h3>Drone Marin</h3>
+                <p>Système embarqué pour la surveillance maritime.</p>
             </div>
         </div>
     </section>
@@ -127,5 +152,35 @@
     <p>Portfolio réalisé par John Doe | Contact : <a href="mailto:email@example.com">email@example.com</a></p>
 </footer>
 
+<script>
+    function openModal(projectId) {
+        const modal = document.getElementById("modal");
+        const modalDetails = document.getElementById("modal-details");
+
+        // Charger le contenu du projet à partir du dossier de détails
+        fetch('Details/' + projectId + '/index.html')
+            .then(response => response.text())
+            .then(data => {
+                modalDetails.innerHTML = data;
+                modal.style.display = "block";
+            })
+            .catch(err => {
+                modalDetails.innerHTML = "<p>Erreur lors du chargement des détails du projet.</p>";
+                modal.style.display = "block";
+            });
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("modal");
+        modal.style.display = "none";
+    }
+</script>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-details"></div>
+    </div>
+</div>
 </body>
 </html>
