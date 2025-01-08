@@ -27,6 +27,23 @@
             font-size: 3rem;
         }
 
+
+        /* Style pour la présentation dans le header */
+        header p.presentation {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 1rem auto;
+            font-weight: 400;
+            color: #f4f4f4;
+            background-color: rgba(0, 0, 0, 0.4); /* Légère transparence pour un fond sombre */
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            font-style: italic;
+        }
+
+
         .container {
             width: 90%;
             margin: 0 auto;
@@ -164,9 +181,19 @@
 
 
 <body>
+
     <header>
-        <h1>Portfolio de John Doe</h1>
+        <h1>Portfolio de A. Prince BENGUET</h1>
         <p>Découvrez mes projets personnels, académiques et de stages</p>
+        <p class="presentation">
+            Je suis diplômé de la promotion 2024 de l'école d'ingénieurs
+            SeaTech Toulon en Systèmes Mécatroniques et Robotiques, également détenteur 
+            d'un Master 2 en Robotique et Objets Connectés obtenu à l’université de 
+            Toulon.
+        </p>
+        <p>Mes expertises incluent la conception mécanique, robotique, le développement logiciel et
+            l'intégration de technologies IoT.
+        </p>
     </header>
 
 
@@ -180,7 +207,7 @@
                     <img src="./images/Base_mobile.png" alt="Robot Mobile - Bras Robotique" class="project-image">
                     <div class="project-description">
                         <h3>Robot Mobile - Bras Robotique(2023-2024)</h3>
-                        <p>Projet de robot mobile avec bras robotique : Conception mécanique, Électronique, Programmation.</p>
+                        <p>Projet de robotique mobile : Conception mécanique, Électronique, logiciels.</p>
                         <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                     </div>
                 </div>
@@ -198,7 +225,7 @@
                     <img src="./images/KitElectronique.png" alt="Électronique Pratique" class="project-image">
                     <div class="project-description">
                         <h3>Électronique Pratique (2023-2024)</h3>
-                        <p>Travail pratique en électronique appliqué dans divers cas pratiques.</p>
+                        <p>Travail pratique en électronique.</p>
                         <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                     </div>
                 </div>
@@ -207,7 +234,7 @@
                     <img src="./images/PCB_3.png" alt="Électronique PCB avec KiCad" class="project-image">
                     <div class="project-description">
                         <h3>Électronique PCB avec KiCad (2025)</h3>
-                        <p>Conception de PCB avec KiCad dans le cadre d'une certification (5 conceptions).</p>
+                        <p>Conception de PCB avec KiCad dans le cadre d'une certification udemy (5 conceptions).</p>
                         <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                     </div>
                 </div>
@@ -220,22 +247,23 @@
         <section id="projets-academiques">
             <h2>2. Projets Académiques</h2>
             <div class="section">
+
+
                 <div class="project">
                     <img src="./images/ApercuRobotPic16F.png" alt="ROBOT Mobile - Microc" class="project-image">
                     <div class="project-description">
-                        <h3>Robot Mobile - embarquée</h3>
-                        <p>Programmation d'un robot mobile utilisant un microcontrôleur PIC.</p>
+                        <h3>Robot Mobile -Informatique embarquée</h3>
+                        <p>Programmation bas niveau d'un robot mobile - microcontrôleur PIC.</p>
                         <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                     </div>
                 </div>
-
+                
                 
                 <div class="project">
                         <img src="./images/ApercuRobotTurtlebot.png" alt="Robot TurtleBot 2" class="project-image">
                         <div class="project-description">
                             <h3>Robot TurtleBot 2 </h3> 
-                            <p>Programmation haut niveau d'un Robot TurtleBot 2 en python : Machines à 
-                                états, Bumpers, Lidar 2D.</p>
+                            <p>Programmation haut niveau d'un Robot TurtleBot 2 en python.</p>
                             <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                         </div>
                 </div>
@@ -254,7 +282,7 @@
                 <div class="project">
                         <img src="./images/ApercuMatlabSimulateur.png" alt="Simulateur - dynamique des véhicules routiers - MATLAB" class="project-image">
                         <div class="project-description">
-                            <h3>Conception d'un simulateur avec MATLAB ABenguet DESIGN</h3>
+                            <h3>Conception d'un simulateur avec Matlab App Design</h3>
                             <p>Mécanique théorique, implémentation Matlab.</p>
                             <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                         </div>
@@ -286,7 +314,7 @@
                         <img src="./images/ApercuStage2A.png" alt="Développement embarqué " class="project-image">
                         <div class="project-description">
                             <h3> Développement embarqué </h3>
-                            <p>Intégration logiciel et matérielle d'un AIS dans un drone marin de surface</p>
+                            <p>Intégration logicielle et matérielle d'un AIS dans un drone marin de surface.</p>
                             <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                         </div>
                 </div>
@@ -296,7 +324,7 @@
               <div class="project">
                         <img src="./images/ApercuStage3A.png" alt="Robot amphibien" class="project-image">
                         <div class="project-description">
-                            <h3>Robot amphibie à pattes bio inspirées - Software robotique</h3>
+                            <h3>Robot amphibie - Software robotique</h3>
                             <p> Concevoir un robot capable de se déplacer sur terre et sur l'eau de manière efficace.</p>
                             <a href="https://github.com/BenguetAime/Shared_Portfolio_Projects" target="_blank">Voir le projet sur GitHub</a>
                         </div>
