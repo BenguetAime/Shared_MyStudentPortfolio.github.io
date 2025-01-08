@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de John Doe - Projets Faits Maison, Académiques et Stages">
+    <meta name="description" content="Portfolio de John Doe - Projets Faits Maison, Académiques et de Stages">
     <title>Portfolio de John Doe</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         /* Style de base pour la mise en page */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #fafafa;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            color: #333;
         }
 
         header {
-            background-color: #333;
+            background-color: #4CAF50;
             color: #fff;
+            padding: 1.5rem;
             text-align: center;
-            padding: 1rem;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
         }
 
         .container {
@@ -35,25 +37,33 @@
         }
 
         h2 {
-            color: #333;
+            color: #4CAF50;
             font-size: 2rem;
             margin-top: 2rem;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 0.5rem;
         }
 
         .section {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1.5rem;
+            justify-content: center;
         }
 
         .project {
             background-color: #fff;
-            padding: 1rem;
+            padding: 1.2rem;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 300px;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
         }
 
         .project img {
@@ -63,7 +73,7 @@
         }
 
         .project h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #333;
             margin-top: 1rem;
         }
@@ -81,20 +91,68 @@
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         .project a:hover {
             background-color: #45a049;
         }
 
+        /* Section Détails - Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 70%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         footer {
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
             background-color: #333;
             color: #fff;
         }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
     </style>
 </head>
+
+
+
+
+
+
 
 <body>
 
@@ -108,18 +166,16 @@
     <section id="projets-faits-maison">
         <h2>1. Projets Faits Maison</h2>
         <div class="section">
-            <div class="project">
-                <img src="project1.jpg" alt="LED Flasher STM32">
-                <h3>LED Flasher avec STM32</h3>
-                <p>Clignotement de LED contrôlé par un microcontrôleur STM32L011 avec signal PWM.</p>
-                <a href="https://github.com/JohnDoe/LED-Flasher" target="_blank">Voir les détails</a>
+            <div class="project" onclick="openModal('projet_faitmaison_robotmobile_brasrobotique')">
+                <img src="Images/projet1.jpg" alt="Robot Mobile - Bras Robotique">
+                <h3>Robot Mobile - Bras Robotique</h3>
+                <p>Ce projet est un robot mobile avec bras robotique, une combinaison de mécatronique, d'électronique et de programmation.</p>
             </div>
 
-            <div class="project">
-                <img src="project2.jpg" alt="Système de Surveillance de Température ESP32">
-                <h3>Système de Surveillance de Température avec ESP32</h3>
-                <p>Surveillance de la température via un ESP32 avec un affichage OLED.</p>
-                <a href="https://github.com/JohnDoe/Temperature-Monitoring" target="_blank">Voir les détails</a>
+            <div class="project" onclick="openModal('projet_faitmaison_communication_iot')">
+                <img src="Images/projet2.jpg" alt="Communication IoT RaspberryPi et Arduino">
+                <h3>Communication IoT avec Raspberry Pi et Arduino</h3>
+                <p>Projet combinant IoT et communication sans fil avec Raspberry Pi et Arduino pour des applications domotiques.</p>
             </div>
         </div>
     </section>
@@ -128,18 +184,16 @@
     <section id="projets-academiques">
         <h2>2. Projets Académiques</h2>
         <div class="section">
-            <div class="project">
-                <img src="project3.jpg" alt="Simulation de Circuit LTspice">
-                <h3>Simulation de Circuit Analogique avec LTspice</h3>
-                <p>Simulation d'un amplificateur à transistors avec LTspice pour analyser son comportement.</p>
-                <a href="https://github.com/JohnDoe/LTspice-Circuit" target="_blank">Voir les détails</a>
+            <div class="project" onclick="openModal('projet_academique_robotmobile_pic16f')">
+                <img src="Images/projet3.jpg" alt="Robot Mobile avec PIC16F">
+                <h3>Robot Mobile avec Microcontrôleur PIC16F</h3>
+                <p>Développement d'un robot mobile utilisant un microcontrôleur PIC16F pour le contrôle des moteurs et des capteurs.</p>
             </div>
 
-            <div class="project">
-                <img src="project4.jpg" alt="Contrôle de Moteur avec Arduino">
-                <h3>Contrôle de Moteur avec Arduino</h3>
-                <p>Contrôle d'un moteur pas-à-pas avec un Arduino pour ajuster la vitesse et la direction.</p>
-                <a href="https://github.com/JohnDoe/Arduino-Motor-Control" target="_blank">Voir les détails</a>
+            <div class="project" onclick="openModal('projet_academique_rail_mecanique')">
+                <img src="Images/projet4.jpg" alt="Conception d'un Rail Linéaire Motorisé">
+                <h3>Conception d'un Rail Linéaire Motorisé</h3>
+                <p>Projet en mécatronique, conception d'un rail linéaire motorisé pour des applications industrielles.</p>
             </div>
         </div>
     </section>
@@ -148,28 +202,13 @@
     <section id="stages">
         <h2>3. Stages</h2>
         <div class="section">
-            <div class="project">
-                <img src="stage1.jpg" alt="Développement de Système Embarqué chez XYZ Tech">
-                <h3>Développement de Système Embarqué chez XYZ Tech</h3>
-                <p>Création d'un système embarqué pour la surveillance de température avec un microcontrôleur.</p>
-                <a href="https://github.com/JohnDoe/Embedded-System" target="_blank">Voir les détails</a>
+            <div class="project" onclick="openModal('stage_1A_photogrammetrie')">
+                <img src="Images/stage1.jpg" alt="Stage Photogrammétrie - Vision 3D">
+                <h3>Photogrammétrie - Vision 3D</h3>
+                <p>Stage dans la vision 3D et photogrammétrie pour des applications de modélisation 3D dans le domaine industriel.</p>
             </div>
 
-            <div class="project">
-                <img src="stage2.jpg" alt="Développement IoT chez ABC Corp">
-                <h3>Développement IoT chez ABC Corp</h3>
-                <p>Développement d'une application mobile pour gérer un système IoT de surveillance environnementale.</p>
-                <a href="https://github.com/JohnDoe/IoT-Development" target="_blank">Voir les détails</a>
-            </div>
-        </div>
-    </section>
-
-</div>
-
-<footer>
-    <p>Portfolio réalisé par John Doe | Contact : <a href="mailto:email@example.com">email@example.com</a></p>
-</footer>
-
-</body>
-
-</html>
+            <div class="project" onclick="openModal('stage_2A_drone_marin')">
+                <img src="Images/stage2.jpg" alt="Stage Ais Drone Marin de Surface">
+                <h3>Développement d'un Drone Marin de Surface</h3>
+                <p>Stage axé sur le développement d'un drone marin avec un système embarqué pour la surveillance maritime
