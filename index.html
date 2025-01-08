@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,12 +146,6 @@
     </style>
 </head>
 
-
-
-
-
-
-
 <body>
 
 <header>
@@ -166,13 +158,13 @@
     <section id="projets-faits-maison">
         <h2>1. Projets Faits Maison</h2>
         <div class="section">
-            <div class="project" onclick="openModal('projet_faitmaison_robotmobile_brasrobotique')">
+            <div class="project" onclick="openModal('FaitMaison_RobotMobile_BrasRobotique')">
                 <img src="Images/projet1.jpg" alt="Robot Mobile - Bras Robotique">
                 <h3>Robot Mobile - Bras Robotique</h3>
                 <p>Ce projet est un robot mobile avec bras robotique, une combinaison de mécatronique, d'électronique et de programmation.</p>
             </div>
 
-            <div class="project" onclick="openModal('projet_faitmaison_communication_iot')">
+            <div class="project" onclick="openModal('FaitMaison_2023_Communication_IOT')">
                 <img src="Images/projet2.jpg" alt="Communication IoT RaspberryPi et Arduino">
                 <h3>Communication IoT avec Raspberry Pi et Arduino</h3>
                 <p>Projet combinant IoT et communication sans fil avec Raspberry Pi et Arduino pour des applications domotiques.</p>
@@ -184,14 +176,14 @@
     <section id="projets-academiques">
         <h2>2. Projets Académiques</h2>
         <div class="section">
-            <div class="project" onclick="openModal('projet_academique_robotmobile_pic16f')">
+            <div class="project" onclick="openModal('Projet_Academique_2022_RobotMobile_MicroncontrolleurPIC16F')">
                 <img src="Images/projet3.jpg" alt="Robot Mobile avec PIC16F">
                 <h3>Robot Mobile avec Microcontrôleur PIC16F</h3>
                 <p>Développement d'un robot mobile utilisant un microcontrôleur PIC16F pour le contrôle des moteurs et des capteurs.</p>
             </div>
 
-            <div class="project" onclick="openModal('projet_academique_rail_mecanique')">
-                <img src="Images/projet4.jpg" alt="Conception d'un Rail Linéaire Motorisé">
+            <div class="project" onclick="openModal('Projet_Academique_2022_RobotTurtleBot2_ROS_LIDAR')">
+                <img src="Images/projet4.jpg" alt="Conception d'un rail linéaire motorisé">
                 <h3>Conception d'un Rail Linéaire Motorisé</h3>
                 <p>Projet en mécatronique, conception d'un rail linéaire motorisé pour des applications industrielles.</p>
             </div>
@@ -202,13 +194,57 @@
     <section id="stages">
         <h2>3. Stages</h2>
         <div class="section">
-            <div class="project" onclick="openModal('stage_1A_photogrammetrie')">
+            <div class="project" onclick="openModal('Stage_1A_2022_Photogrammetrie')">
                 <img src="Images/stage1.jpg" alt="Stage Photogrammétrie - Vision 3D">
                 <h3>Photogrammétrie - Vision 3D</h3>
                 <p>Stage dans la vision 3D et photogrammétrie pour des applications de modélisation 3D dans le domaine industriel.</p>
             </div>
 
-            <div class="project" onclick="openModal('stage_2A_drone_marin')">
+            <div class="project" onclick="openModal('Stage_2A_2023_Development_Embarque')">
                 <img src="Images/stage2.jpg" alt="Stage Ais Drone Marin de Surface">
                 <h3>Développement d'un Drone Marin de Surface</h3>
-                <p>Stage axé sur le développement d'un drone marin avec un système embarqué pour la surveillance maritime
+                <p>Stage axé sur le développement d'un drone marin avec un système embarqué pour la surveillance maritime.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Modal for Project Details -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-details"></div>
+    </div>
+</div>
+
+<footer>
+    <p>Portfolio réalisé par John Doe | Contact : <a href="mailto:email@example.com">email@example.com</a></p>
+</footer>
+
+<script>
+    function openModal(projectId) {
+        const modal = document.getElementById("modal");
+        const modalDetails = document.getElementById("modal-details");
+
+        // Charger le contenu du projet à partir du dossier de détails
+        fetch('Details/' + projectId + '/index.html')
+            .then(response => response.text())
+            .then(data => {
+                modalDetails.innerHTML = data;
+                modal.style.display = "block";
+            })
+            .catch(err => {
+                modalDetails.innerHTML = "<p>Erreur lors du chargement des détails du projet.</p>";
+                modal.style.display = "block";
+            });
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("modal");
+        modal.style.display = "none";
+    }
+</script>
+
+</body>
+
+</html>
