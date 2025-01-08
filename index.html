@@ -188,7 +188,22 @@ strong {
 
 
 
+
 <body>
+
+
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+                e.preventDefault();
+            }
+        });
+    </script>
+    
+
 
     <header>
         <h1>Portfolio de A. Prince BENGUET</h1>
@@ -367,6 +382,9 @@ strong {
             | Téléphone : 
             <a href="tel:+33609745169">+33 609745169</a>
         </p>
+
+        <meta name="robots" content="noarchive, noimageindex">
+        <p>© 2025 John Doe. Tous droits réservés.</p>
     </footer>
 
 </body>
