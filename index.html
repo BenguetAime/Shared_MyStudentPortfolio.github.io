@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,6 +95,13 @@
             background-color: #45a049;
         }
 
+        /* Exemple avec url(...) dans CSS */
+        .project {
+            background-image: url('Images/background_project.jpg'); /* Image d'arrière-plan */
+            background-size: cover;
+            background-position: center;
+        }
+
         /* Section Détails - Modal */
         .modal {
             display: none;
@@ -148,16 +151,7 @@
         }
     </style>
 </head>
-
-
-
-
-
-
-
-
 <body>
-
 <header>
     <h1>Portfolio de John Doe</h1>
     <p>Découvrez mes projets personnels, académiques et de stages</p>
@@ -169,52 +163,9 @@
         <h2>1. Projets Faits Maison</h2>
         <div class="section">
             <div class="project" onclick="openModal('FaitMaison_RobotMobile_BrasRobotique')">
-                <img src="./Images/_Apercu_BaseMobile_Bras.png" alt="Robot Mobile - Bras Robotique">
+                <img src="Images/_Apercu_BaseMobile_Bras.png" alt="Robot Mobile - Bras Robotique">
                 <h3>Robot Mobile - Bras Robotique</h3>
                 <p>Ce projet est un robot mobile avec bras robotique, une combinaison de mécatronique, d'électronique et de programmation.</p>
-            </div>
-
-
-            <div class="project" onclick="openModal('FaitMaison_2023_Communication_IOT')">
-                <img src="./Images/_Aperçu_Intercom.png" alt="Communication IoT RaspberryPi et Arduino">
-                <h3>Communication IoT avec Raspberry Pi et Arduino</h3>
-                <p>Projet combinant IoT et communication sans fil avec Raspberry Pi et Arduino pour des applications domotiques.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Projets Académiques -->
-    <section id="projets-academiques">
-        <h2>2. Projets Académiques</h2>
-        <div class="section">
-            <div class="project" onclick="openModal('Projet_Academique_2022_RobotMobile_MicroncontrolleurPIC16F')">
-                <img src="Images/projet3.jpg" alt="Robot Mobile avec PIC16F">
-                <h3>Robot Mobile avec Microcontrôleur PIC16F</h3>
-                <p>Développement d'un robot mobile utilisant un microcontrôleur PIC16F pour le contrôle des moteurs et des capteurs.</p>
-            </div>
-
-            <div class="project" onclick="openModal('Projet_Academique_2022_RobotTurtleBot2_ROS_LIDAR')">
-                <img src="Images/projet4.jpg" alt="Conception d'un rail linéaire motorisé">
-                <h3>Conception d'un Rail Linéaire Motorisé</h3>
-                <p>Projet en mécatronique, conception d'un rail linéaire motorisé pour des applications industrielles.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Stages -->
-    <section id="stages">
-        <h2>3. Stages</h2>
-        <div class="section">
-            <div class="project" onclick="openModal('Stage_1A_2022_Photogrammetrie')">
-                <img src="./Images/stage1.jpg" alt="Stage Photogrammétrie - Vision 3D">
-                <h3>Photogrammétrie - Vision 3D</h3>
-                <p>Stage dans la vision 3D et photogrammétrie pour des applications de modélisation 3D dans le domaine industriel.</p>
-            </div>
-
-            <div class="project" onclick="openModal('Stage_2A_2023_Development_Embarque')">
-                <img src="Images/stage2.jpg" alt="Stage Ais Drone Marin de Surface">
-                <h3>Développement d'un Drone Marin de Surface</h3>
-                <p>Stage axé sur le développement d'un drone marin avec un système embarqué pour la surveillance maritime.</p>
             </div>
         </div>
     </section>
@@ -257,5 +208,4 @@
 </script>
 
 </body>
-
 </html>
