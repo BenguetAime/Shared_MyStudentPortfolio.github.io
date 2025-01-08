@@ -57,7 +57,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 300px;
-            height: 200px; /* Ajuste la hauteur pour les arrière-plans */
+            height: 200px;
             text-align: center;
             color: #fff;
             display: flex;
@@ -69,12 +69,6 @@
         .project h3 {
             font-size: 1.6rem;
             margin: 0;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        .project p {
-            font-size: 1rem;
-            margin: 0.5rem 0;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
@@ -93,6 +87,42 @@
             color: #fff;
             text-decoration: none;
         }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 70%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -106,68 +136,72 @@
     <section id="projets-faits-maison">
         <h2>1. Projets Faits Maison</h2>
         <div class="section">
-            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/_Apercu_BaseMobile_Bras.png');" onclick="openModal('FaitMaison_RobotMobile_BrasRobotique')">
+            <div class="project" 
+                 style="background-image: url('./Images/_Apercu_BaseMobile_Bras.png');" 
+                 onclick="openModal('FaitMaison_RobotMobile_BrasRobotique')">
                 <h3>Robot Mobile - Bras Robotique</h3>
-                <p>Mécatronique, électronique et programmation.</p>
             </div>
-            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/_Aperçu_Intercom.png');" onclick="openModal('FaitMaison_2023_Communication_IOT')">
+            <div class="project" 
+                 style="background-image: url('./Images/_Apercu_Intercom.png');" 
+                 onclick="openModal('FaitMaison_2023_Communication_IOT')">
                 <h3>Communication IoT</h3>
-                <p>Raspberry Pi et Arduino pour la domotique.</p>
             </div>
         </div>
     </section>
+
 
     <!-- Section Projets Académiques -->
     <section id="projets-academiques">
         <h2>2. Projets Académiques</h2>
         <div class="section">
-            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/projet3.jpg');" onclick="openModal('Projet_Academique_2022_RobotMobile_MicroncontrolleurPIC16F')">
+            <div class="project" 
+                 style="background-image: url('./Images/_Apercu_RobotPic16F.png');" 
+                 onclick="openModal('Projet_Academique_2022_RobotMobile_MicroncontrolleurPIC16F')">
                 <h3>Robot Mobile avec PIC16F</h3>
-                <p>Contrôle des moteurs et capteurs.</p>
-            </div>
-            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/projet4.jpg');" onclick="openModal('Projet_Academique_2022_RobotTurtleBot2_ROS_LIDAR')">
-                <h3>Rail Linéaire Motorisé</h3>
-                <p>Applications industrielles.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Stages -->
-    <section id="stages">
-        <h2>3. Stages</h2>
-        <div class="section">
-            <div class="project" style="background-image: url('../Images/_Apercu_BaseMobile_Bras.png');" onclick="openModal('Stage_1A_2022_Photogrammetrie')">
-                <h3>Photogrammétrie</h3>
-                <p>Vision 3D et modélisation industrielle.</p>
-            </div>
-            <div class="project" style="background-image: url('https://Username.github.io/Shared_StudentPortfolio.github.io/Images/stage2.jpg');" onclick="openModal('Stage_2A_2023_Development_Embarque')">
-                <h3>Drone Marin</h3>
-                <p>Système embarqué pour la surveillance maritime.</p>
             </div>
         </div>
     </section>
 </div>
+
 
 <footer>
     <p>Portfolio réalisé par John Doe | Contact : <a href="mailto:email@example.com">email@example.com</a></p>
 </footer>
 
 <script>
+    // Objets contenant les informations des projets
+    const projects = {
+        FaitMaison_RobotMobile_BrasRobotique: {
+            title: "Robot Mobile - Bras Robotique",
+            description: "Un projet combinant mécatronique, électronique et programmation.",
+            image: "./Images/_Apercu_BaseMobile_Bras.png"
+        },
+        FaitMaison_2023_Communication_IOT: {
+            title: "Communication IoT",
+            description: "Création d'un intercom IoT avec Raspberry Pi et Arduino.",
+            image: "./Images/_Apercu_Intercom.png"
+        },
+        Projet_Academique_2022_RobotMobile_MicroncontrolleurPIC16F: {
+            title: "Robot Mobile avec PIC16F",
+            description: "Un robot académique contrôlé par microcontrôleur.",
+            image: "./Images/_Apercu_RobotPic16F.png"
+        }
+    };
+
+    // Fonction pour ouvrir le modal
     function openModal(projectId) {
         const modal = document.getElementById("modal");
         const modalDetails = document.getElementById("modal-details");
 
-        // Charger le contenu du projet à partir du dossier de détails
-        fetch('index.html')
-            .then(response => response.text())
-            .then(data => {
-                modalDetails.innerHTML = data;
-                modal.style.display = "block";
-            })
-            .catch(err => {
-                modalDetails.innerHTML = "<p>Erreur lors du chargement des détails du projet.</p>";
-                modal.style.display = "block";
-            });
+        const project = projects[projectId];
+        if (project) {
+            modalDetails.innerHTML = `
+                <h2>${project.title}</h2>
+                <img src="${project.image}" alt="${project.title}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                <p>${project.description}</p>
+            `;
+            modal.style.display = "block";
+        }
     }
 
     function closeModal() {
