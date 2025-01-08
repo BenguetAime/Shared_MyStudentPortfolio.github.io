@@ -136,7 +136,7 @@
     <section id="stages">
         <h2>3. Stages</h2>
         <div class="section">
-            <div class="project" style="background-image: url('./Images/_Apercu_BaseMobile_Bras.png');" onclick="openModal('Stage_1A_2022_Photogrammetrie')">
+            <div class="project" style="background-image: url('../Images/_Apercu_BaseMobile_Bras.png');" onclick="openModal('Stage_1A_2022_Photogrammetrie')">
                 <h3>Photogrammétrie</h3>
                 <p>Vision 3D et modélisation industrielle.</p>
             </div>
@@ -158,7 +158,7 @@
         const modalDetails = document.getElementById("modal-details");
 
         // Charger le contenu du projet à partir du dossier de détails
-        fetch('Details/' + projectId + '/index.html')
+        fetch('index.html')
             .then(response => response.text())
             .then(data => {
                 modalDetails.innerHTML = data;
