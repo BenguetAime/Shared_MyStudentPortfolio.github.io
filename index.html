@@ -144,6 +144,23 @@
         }
 
 
+        /* */
+        /* Vidéo */
+        .project-video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-video {
+                width: 100%;
+            }
+        }
+
+
+
 #certifications {
     margin-top: 3rem;
     text-align: center;
@@ -214,7 +231,7 @@ strong {
             Toulon.
         </p>
         <p>
-            J'ai un fort intérêt pour l'ingénierie des systèmes complexes. C'est ainsi que mes expériences incluent la <strong>conception mécanique</strong>, <strong>robotique</strong>, le <strong> développement logiciel </strong> et l'intégration de technologies <strong>IoT</strong>.
+            J'ai un fort intérêt pour l'ingénierie des systèmes complexes. C'est ainsi que mes expériences incluent l'ingénierie système, la <strong>conception mécanique</strong>, <strong>robotique</strong>, le <strong> développement logiciel </strong> et l'intégration de technologies <strong>IoT</strong>.
         </p>
         
     </header>
@@ -222,6 +239,46 @@ strong {
 
 
     <div class="container">
+
+        <!-- Section Illustrations -->
+        <section id="Cas pratique">
+            <h2>Projet personnel complet</h2>
+                <p> réseaux, sécurité, conception mécanique, simulations, développement logiciel, 
+                    intégration de capteurs, robotique mobile, développement embarqué 
+                </p>
+            <div class="section">
+
+                <!-- Vidéo 1 -->
+                <div class="project">
+                    <video controls class="project-video">
+                        <source src="./images/myRobotVideo1.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                    <div class="project-description">
+                        <h3>Robot Mobile (2024)</h3>
+                        <p>Projet de robotique mobile en autonomie : Conception mécanique, Électronique, Logiciels | SolidWorks, Ros2, Python, C++, Github</p>
+                    </div>
+                </div>
+
+                <!-- Vidéo 2 -->
+                <div class="project">
+                    <video controls class="project-video">
+                        <source src="./images/GazeboVMwareRpi.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                    <div class="project-description">
+                        <h3>Robot Mobile - Navigation Autonome</h3>
+                        <p>Test des algorithmes de navigation autonome avec capteurs LiDAR et caméra.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
         <!-- Section Projets Faits Maison -->
         <section id="projets-faits-maison">
             <h2>1. Projets Faits Maison</h2>
