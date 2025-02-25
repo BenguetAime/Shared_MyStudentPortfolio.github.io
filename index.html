@@ -164,12 +164,32 @@
             border-radius: 8px;
         }
 
+
         /* Ajustement spécifique pour les vidéos verticales */
         @media (min-width: 768px) {
             .project-video {
                 max-height: 450px; /* Limite la hauteur pour éviter qu’elle soit trop grande */
             }
         }
+
+
+
+
+/**/
+        .project-video-perso {
+            width: 100%;  /* La vidéo prend la largeur du conteneur */
+            max-width: 400px; /* Réduction de la largeur max pour ne pas être trop grande */
+            height: 500px; /* Garde le ratio d'aspect pour éviter les déformations */
+            border-radius: 8px;
+        }        /* Ajustement spécifique pour les vidéos verticales */
+        @media (min-width: 768px) {
+            .project-video-perso {
+                max-height: 500px; /* Limite la hauteur pour éviter qu’elle soit trop grande */
+            }
+        }
+/**/
+
+
 
 
 
